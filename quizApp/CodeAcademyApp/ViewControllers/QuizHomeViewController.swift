@@ -26,10 +26,9 @@ class QuizHomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addQuestionsButton.isHidden = false
-        if let username = AccountManager.loggedInAccount?.username {
-            welcomeLabel.text = "Welcome to the quiz, " + username
-        }
+        guard let loggedInAccount = AccountManager.loggedInAccount else { return }
+        addQuestionsButton.isHidden = loggedInAccount.accountType == .normalUser
+        welcomeLabel.text = "Welcome to the quiz, " + loggedInAccount.username
     }
 }
 
