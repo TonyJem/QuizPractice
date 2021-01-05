@@ -7,7 +7,7 @@
 
 struct QuizManager {
 
-    static let questions = [
+    static var questions = [
         Question(
             questionDescription: "My name is?",
             firstAnswer: "Arnas",

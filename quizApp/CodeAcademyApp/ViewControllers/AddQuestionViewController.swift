@@ -19,13 +19,25 @@ class AddQuestionViewController: UIViewController {
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let question = makeQuestion() else {
             print("Missing question")
-            return }
+            return
+        }
+        QuizManager.questions.append(question)
+        print("New question added")
     }
 }
 
 private extension AddQuestionViewController {
+    
+    var isAnswerValid: Bool {
+        return correctAnswerTextField.text == firstAnswerTextField.text ||
+            correctAnswerTextField.text == secondAnswerTextField.text ||
+            correctAnswerTextField.text == thirdAnswerTextField.text ||
+            correctAnswerTextField.text == fourthAnswerTextField.text
+    }
+    
     func makeQuestion() -> Question? {
-        guard let questionDescription = questionDescriptionTextField.text,
+        guard isAnswerValid,
+              let questionDescription = questionDescriptionTextField.text,
               let firstAnswer = firstAnswerTextField.text,
               let secondAnswer = secondAnswerTextField.text,
               let thirdAnswer = thirdAnswerTextField.text,
