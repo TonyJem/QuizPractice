@@ -19,6 +19,11 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
 
+    var questionNumber = 0
+    var numberOfQuestions = 0
+    var answerButton: [UIButton] = []
+    var score = 0
+    
     // MARK: - Button actions
 
     @IBAction func choiceButtonTapped(_ sender: UIButton) {

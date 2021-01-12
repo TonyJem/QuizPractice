@@ -34,3 +34,7 @@ struct QuizManager {
         ),
     ]
 }
+
+private extension QuestionViewController {
+    func handleQuestion(_ question )
+}
